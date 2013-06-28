@@ -4,6 +4,7 @@
 		<title>Made Collection</title>
 		<meta charset="utf-8" />
 		<script type="text/javascript" src="js/polymaps.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/styles.css" type="text/css" />
     <link rel="stylesheet" href="css/counties2.css" type="text/css" />
@@ -133,20 +134,21 @@
       }
 		
 		</script>
-<!--
-		<script src="http://www.clocklink.com/embed.js"></script>
-		<script type="text/javascript" language="JavaScript">
-		  obj=new Object;
-		  obj.clockfile="5012-white.swf";
-		  obj.TimeZone="MST";
-		  obj.width=181.6;
-		  obj.height=60;
-		  obj.wmode="transparent";
-		  showClock(obj);
-		</script>
--->
+    
+    <!-- countdown clock -->
+		<div id="embed">
+		  <embed src="http://flash-clocks.com/documents/countdown-clock.swf?targetName=Sonic+Boom+Ends+In%3A&dateString=2013.6.29|00:00:00&targetMessage=Today has come&textColor=ffffff&backAlpha=100&backColor=3ca6da" width=180px height=60px wmode="transparent" type="application/x-shockwave-flash">
+		</div>
 		
-		<embed src="http://flash-clocks.com/documents/countdown-clock.swf?targetName=Sonic+Boom+Ends+In%3A&dateString=2013.6.29|00:00:00&targetMessage=Today has come&textColor=ffffff&backAlpha=100&backColor=3ca6da" width=180px height=60px wmode="transparent" type="application/x-shockwave-flash">
-		
+		<!-- sonic boom audio -->
+		<audio id="sonicBoom">
+    	<source src="audio/sonicBoom.mp3"></source>
+    </audio>
+    <script>
+      var audio = $("#sonicBoom")[0];
+      $("#embed").mouseenter(function() {
+        audio.play();
+      });
+    </script>
 	</body>
 </html>
