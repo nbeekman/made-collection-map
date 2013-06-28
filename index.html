@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Made Collection</title>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="js/polymaps.min.js"></script>
+		<link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="css/counties2.css" type="text/css" />
+	</head>
+	<body onload="init();">
+		<div id="map"></div>
+		
+		<script>
+		
+		  function init(){
+        var po = org.polymaps;        
+        var map = po.map()
+            .container(document.getElementById("map").appendChild(po.svg("svg")))
+            .center({lat: 39, lon: -96})
+            .zoom(4.5)
+            .zoomRange([3, 7])
+            //.add(po.interact());
+        
+        map.add(po.image()
+            .url(po.url("http://{S}tile.cloudmade.com"
+            + "/1a1b06b230af4efdbb989ea99e9841af" // http://cloudmade.com/register
+            + "/20760/256/{Z}/{X}/{Y}.png")
+            .hosts(["a.", "b.", "c.", ""])));
+        
+        map.add(po.geoJson()
+            .url("http://polymaps.appspot.com/county/{Z}/{X}/{Y}.json")
+            .on("load", load)
+            .id("county"));
+        
+        map.add(po.geoJson()
+            .url("http://polymaps.appspot.com/state/{Z}/{X}/{Y}.json")
+            .on("load", load)
+            .id("state"));
+        
+        // san francisco   
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-122.258, 37.805], type: "Point"}}])
+            .on("load", load)
+            .id("SF"));
+        // LA
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-118.243, 34.052], type: "Point"}}])
+            .on("load", load)
+            .id("LA"));
+        // denver
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-104.984, 39.737], type: "Point"}}])
+            .on("load", load)
+            .id("denver"));
+        // austin
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-97.743, 30.267], type: "Point"}}])
+            .on("load", load)
+            .id("austin"));
+        // portland
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-122.676, 45.523], type: "Point"}}])
+            .on("load", load)
+            .id("portland"));
+        // seattle
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-122.332, 47.606], type: "Point"}}])
+            .on("load", load)
+            .id("seattle"));
+        // NY
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-74.005, 40.714], type: "Point"}}])
+            .on("load", load)
+            .id("NY"));
+        // miami
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-80.226, 25.788], type: "Point"}}])
+            .on("load", load)
+            .id("miami"));
+        // chicago
+        map.add(po.geoJson()
+            .features([{geometry: {coordinates: [-87.629, 41.878], type: "Point"}}])
+            .on("load", load)
+            .id("chicago"));
+            
+        map.add(po.layer(overlay)
+            .tile(false)
+            .id("madeCollection"));
+            
+        map.add(po.layer(modal)
+            .tile(false)
+            .id("modal"));
+        
+        map.add(po.compass()
+            .pan("none"));
+            
+        
+        function load(e) {
+          for (var i = 0; i < e.features.length; i++) {
+            var feature = e.features[i];
+            feature.element.setAttribute("id", feature.data.id);
+          }
+        }  
+        
+        /** A lightweight layer implementation for an image overlay. */
+        function overlay(tile, proj) {
+          proj = proj(tile);
+          var tl = proj.locationPoint({lon: -75.375, lat: 53.75}),
+              br = proj.locationPoint({lon: -75.375, lat: 53.75}),
+              image = tile.element = po.svg("image");
+          image.setAttribute("preserveAspectRatio", "none");
+          image.setAttribute("x", tl.x);
+          image.setAttribute("y", tl.y);
+          image.setAttribute("width", 300);
+          image.setAttribute("height", 169);
+          image.setAttributeNS("http://www.w3.org/1999/xlink", "href", "img/madeCollection.png");
+        }
+        
+        function modal(tile, proj) {
+          proj = proj(tile);
+          var tl = proj.locationPoint({lon: -75.000, lat: 30.316}),
+              br = proj.locationPoint({lon: -75.000, lat: 30.316}),
+              image = tile.element = po.svg("image");
+          image.setAttribute("preserveAspectRatio", "none");
+          image.setAttribute("x", tl.x);
+          image.setAttribute("y", tl.y);
+          image.setAttribute("width", 300);
+          image.setAttribute("height", 169);
+          image.setAttributeNS("http://www.w3.org/1999/xlink", "href", "img/modal.png");
+        }
+        
+      }
+		
+		</script>
+<!--
+		<script src="http://www.clocklink.com/embed.js"></script>
+		<script type="text/javascript" language="JavaScript">
+		  obj=new Object;
+		  obj.clockfile="5012-white.swf";
+		  obj.TimeZone="MST";
+		  obj.width=181.6;
+		  obj.height=60;
+		  obj.wmode="transparent";
+		  showClock(obj);
+		</script>
+-->
+		
+		<embed src="http://flash-clocks.com/documents/countdown-clock.swf?targetName=Sonic+Boom+Ends+In%3A&dateString=2013.6.29|00:00:00&targetMessage=Today has come&textColor=ffffff&backAlpha=100&backColor=3ca6da" width=180px height=60px wmode="transparent" type="application/x-shockwave-flash">
+		
+	</body>
+</html>

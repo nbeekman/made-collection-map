@@ -1,4 +1,4 @@
-made-collection-map
+Made Collection Map
 ===================
 
 Sonic Boom Map for Made Collection

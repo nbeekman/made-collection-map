@@ -1,0 +1,233 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  text-rendering: optimizeLegibility;
+  padding: 0;
+  margin: 0;
+}
+
+svg {
+  display: block;
+  overflow: hidden;
+}
+
+code, tt, pre {
+  font-family: Courier;
+}
+
+p + p {
+  text-indent: 2em;
+  margin-top: -1.5em;
+}
+
+form p + p {
+  text-indent: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:link, a:visited {
+  color: steelblue;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.active {
+  color: #aaa;
+}
+
+.top {
+  padding-top: 15px;
+}
+
+.top a {
+  margin-right: 20px;
+}
+
+.top a, a.bold {
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.blurb {
+  font-size: 22px;
+}
+
+.light, .sidebar, .sidebar h4, .blurb, .credits, #copy {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+img.ex {
+  padding: 0;
+  border: 0;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  width: 140px;
+  height: 140px;
+}
+
+.logo img, .logo svg, img.ex {
+  float: left;
+}
+
+.svg .logo img {
+  display: none;
+}
+
+.logo .poly {
+  fill: none;
+  stroke: black;
+}
+
+.logo .maps {
+  fill: black;
+  stroke: none;
+}
+
+.hi {
+  background: #ff9;
+}
+
+.sidebar {
+  position: absolute;
+}
+
+.sidebar h4 {
+  text-align: right;
+  color: #aaa;
+}
+
+.sidebar ul {
+  text-align: right;
+  margin-right: 0;
+  list-style-type: none;
+}
+
+.credits {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 1em;
+  padding-top: 2em;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(#fff), color-stop(.3, #fff));
+  background: -moz-linear-gradient(top, rgba(255,255,255,0), #fff 30%);
+}
+
+dl.function dt, dl.function i {
+  font-family: Courier;
+}
+
+dl.function i {
+  color: #936;
+}
+
+div#map {
+  position: relative;
+  background: #eee;
+  height: 100%;
+}
+
+#copy {
+  color: #999;
+  font-size: 12px;
+  height: 1em;
+}
+
+.compass {
+  display: none;
+}
+
+.compass .back {
+  fill: #eee;
+  fill-opacity: .8;
+}
+
+.compass .fore {
+  stroke: #999;
+  stroke-width: 1.5px;
+}
+
+.compass rect.back.fore {
+  fill: #999;
+  fill-opacity: .3;
+  stroke: #eee;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+
+.compass .direction {
+  fill: none;
+}
+
+.compass .chevron {
+  fill: none;
+  stroke: #999;
+  stroke-width: 5px;
+}
+
+.compass .zoom .chevron {
+  stroke-width: 4px;
+}
+
+.compass .active .chevron, .compass .chevron.active {
+  stroke: #fff;
+}
+
+.compass.active .active .direction {
+  fill: #999;
+}
+
+div#map {
+  background: #E6E6E6;
+}
+
+.layer path {
+  fill: none;
+}
+
+#county path {
+  stroke: rgb(192, 192, 192);
+  stroke-opacity: .01;
+  shape-rendering: crispEdges;
+}
+
+#state path {
+  stroke: #ccc;
+  stroke-width: 0px;
+  shape-rendering: crispEdges;
+}
+
+#LA, #SF, #NY, #portland, #seattle, #denver, #austin, #chicago, #miami {
+  fill: #ffffff;
+  stroke: #ffffff;
+  stroke-width: 10px;
+}
+
+#LA:hover, #SF:hover, #NY:hover, #portland:hover, #seattle:hover, #denver:hover, #austin:hover, #chicago:hover, #miami:hover {
+  stroke:#ffffff;
+  fill:#ffffff;
+  stroke-width: 20px;
+  transition: 1s all ease;
+}
+
+embed {
+  position: fixed;
+  left:30px;
+  bottom:70px;
+}
+
+#modal {
+  display: none;
+}
+
+#LA:hover ~ #modal, #SF:hover ~ #modal, #NY:hover ~ #modal, #portland:hover ~ #modal, #seattle:hover ~ #modal, #denver:hover ~ #modal, #austin:hover ~ #modal, #chicago:hover ~ #modal, #miami:hover ~ #modal {
+  display: block;
+}
