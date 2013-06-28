@@ -225,9 +225,11 @@ embed {
 }
 
 #modal {
-  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
 #LA:hover ~ #modal, #SF:hover ~ #modal, #NY:hover ~ #modal, #portland:hover ~ #modal, #seattle:hover ~ #modal, #denver:hover ~ #modal, #austin:hover ~ #modal, #chicago:hover ~ #modal, #miami:hover ~ #modal {
-  display: block;
+  opacity: 1;
+  transition: opacity 1s ease;
 }
